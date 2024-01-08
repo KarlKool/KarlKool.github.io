@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>happybithday</title>
+        <title>widgits</title>
         <link rel="icon" type="image/x-icon" href="/images/nerd-emoji.jpg" 
     </head>
 
@@ -18,6 +18,8 @@
     <!-- Webamp will attempt to center itself within this div -->
 </div>
 <script src="https://unpkg.com/webamp@1.4.2/built/webamp.bundle.min.js"></script>
+<script src="https://unpkg.com/butterchurn@2.6.7/lib/butterchurn.min.js"></script>
+<script src="https://unpkg.com/butterchurn-presets@2.4.7/lib/butterchurnPresets.min.js"></script>
 <script>
     const Webamp = window.Webamp;
     const webamp = new Webamp({
@@ -43,6 +45,27 @@
             }
         ],
     });
+    __butterchurnOptions: {
+                importButterchurn: () => Promise.resolve(window.butterchurn),
+                getPresets: () => {
+                    const presets = window.butterchurnPresets.getPresets();
+                    return Object.keys(presets).map((name) => {
+                        return {
+                            name,
+                            butterchurnPresetObject: presets[name]
+                        };
+                    });
+                },
+                butterchurnOpen: true
+            },
+            __initialWindowLayout: {
+                main: { position: { x: 0, y: 0 } },
+                equalizer: { position: { x: 0, y: 116 } },
+                playlist: { position: { x: 0, y: 232 }, size: [0, 4] },
+                milkdrop: { position: { x: 275, y: 0 }, size: [7, 12] }
+            }
+        }).renderWhenReady(document.getElementById('app'));
+    </script>
 
     // Returns a promise indicating when it's done loading.
     webamp.renderWhenReady(document.getElementById('app'));
