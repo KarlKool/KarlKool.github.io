@@ -8,7 +8,7 @@
 <body>
     <style>
         body {
-          background-image: url('/images/backgrounds/purplecubes.png');
+          background-image: url('/images/img_9282.jpg');
         }
         </style> 
 
@@ -24,14 +24,16 @@
     const Webamp = window.Webamp;
     new Webamp({
         initialTracks: [{
-        {
             metaData: {
                 artist: "Lunar Vacation"
                 title: "Swimming"
-                url:https://cdn.jsdelivr.net/gh/KarlKool/KarlKool.github.io@main/music/Lunar%20Vacation%20-%20Swimming.mp3
-                duration: 4:40
             },
-        }
+            // NOTE: Your audio file must be served from the same domain as your HTML
+            // file, or served with permissive CORS HTTP headers:
+            // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+            url: "https://cdn.jsdelivr.net/gh/KarlKool/KarlKool.github.io@main/music/Lunar%20Vacation%20-%20Swimming.mp3",
+            duration: 04.00.00
+        }],
         __butterchurnOptions: {
             importButterchurn: () => Promise.resolve(window.butterchurn),
             getPresets: () => {
@@ -53,8 +55,6 @@
         }
     }).renderWhenReady(document.getElementById('app'));
 </script>
-
-
 
 </body>
 </html>
