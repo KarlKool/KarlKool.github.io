@@ -41,7 +41,7 @@
 <script>
   const Webamp = window.Webamp;
   new Webamp({
-      initialTracks: [{
+      initialTracks: {
           metaData: {
               artist: "Lunar Vacation",
               title: "Swimming"
@@ -51,7 +51,23 @@
           // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
           url: "https://cdn.jsdelivr.net/gh/KarlKool/KarlKool.github.io@main/music/Lunar%20Vacation%20-%20Swimming.mp3",
           duration: 5.55636
-      }],
+      },
+      {
+          metaData: {
+            artist: "Alex G"
+            title: "Youthinasia (Early Demo)"
+          }
+          url: https://cdn.jsdelivr.net/gh/KarlKool/KarlKool.github.io@main/music/Youthinasia%20(Early%20Demo).mp3
+          duration: 0.00
+      },
+      {
+        metaData: {
+          artist: "Alex G"
+          title: "Sally"
+          }
+          url: "https://github.com/KarlKool/KarlKool.github.io/blob/main/music/sally.mp3"
+      }
+      },
       __butterchurnOptions: {
           importButterchurn: () => Promise.resolve(window.butterchurn),
           getPresets: () => {
